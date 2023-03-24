@@ -14,7 +14,7 @@ class PostsService {
 	}
 
 	async create(post, picture) {
-		const fileName = FileService.save(picture);
+		const fileName = await FileService.save(picture);
 		const createdPost = await Post.create({ ...post, picture: fileName });
 		return createdPost;
 	}
